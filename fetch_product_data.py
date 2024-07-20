@@ -91,10 +91,6 @@ def kill_monitor_process():
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
 
-def kill_monitor_process_fetch():
-    for proc in psutil.process_iter(['pid', 'name']):
-        if proc.info['name'] == 'python.exe' and MONITOR_PROCESS_NAME_FETCH in proc.cmdline():
-            print(f'Terminating {MONITOR_PROCESS_NAME_FETCH} (PID: {proc.pid})')
     
 if __name__ == "__main__":
 
